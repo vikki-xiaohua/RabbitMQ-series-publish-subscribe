@@ -59,11 +59,11 @@ For a demo purpose, a simple inbuilt classes like ConcurrentHashMap is enough, b
 
   ![enter image description here](https://github.com/vikki-xiaohua/rabbitmq-pub-sub/blob/main/image/error-queues.png)  
 
-I also setup a demo project to use [BatchingRabbitTemplate](https://docs.spring.io/spring-amqp/docs/current/api/org/springframework/amqp/rabbit/core/BatchingRabbitTemplate.html) to receive messages in Batch.
+I also setup a demo project to use [BatchingRabbitTemplate](https://docs.spring.io/spring-amqp/docs/current/api/org/springframework/amqp/rabbit/core/BatchingRabbitTemplate.html) to send messages.
 
   
 
-But it looks like Batch is not supported as good as RabbitTemplate until now, less reference material compared with RabbitTemplate
+But it looks like Batch is not supported as good as single message send and receive until now, less reference material compared with RabbitTemplate
 
   
 
