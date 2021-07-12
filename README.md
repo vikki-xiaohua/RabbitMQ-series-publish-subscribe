@@ -128,11 +128,11 @@ Topic exchanges are used in this project
 
   
 
-RabbitTemplate.ConfirmCallback:When messages are successfully or not successfully published into exchange.
+```RabbitTemplate.ConfirmCallback```: When messages are successfully or not successfully published into exchange.
 
   
 
-RabbitTemplate.ReturnsCallback:When messages are successfully published an exchange, but not into a queue. E.g. when I bind my queue to a topic exchange with an invalid routing key, my ReturnsCallback is called.
+```RabbitTemplate.ReturnsCallback```: When messages are successfully published an exchange, but not into a queue. E.g. when I bind my queue to a topic exchange with an invalid routing key, my ReturnsCallback is called.
 
   
 
