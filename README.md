@@ -1,4 +1,5 @@
 
+
 # rabbitmq-pub-sub
 
   
@@ -69,9 +70,6 @@ But it looks like Batch is not supported as good as RabbitTemplate until now, le
 #### [Rabbitmq-Batch-Pub-Sub Demo](https://github.com/vikki-xiaohua/rabbitmq-batch-pub-sub)
 
 
-> https://github.com/vikki-xiaohua/rabbitmq-batch-pub-sub
-
-  
 
 4, For generated CSV files, I saved them in the project folder, and provide a scheduled task to delete files older than 10 minutes ago. In production, usually have a separate file server to take care of all the files, I do the "Delete" action mainly for local laptop during development
 
@@ -143,3 +141,9 @@ RabbitTemplate.ReturnsCallback:When messages are successfully published an excha
   
 
 I use Thread.sleep(2000) to prevent the email service from being overloaded. It's better to have an isolated email service in production if we need to send a lot of emails.
+
+
+
+### Also  see
+
+> https://github.com/vikki-xiaohua/rabbitmq-batch-pub-sub
