@@ -1,0 +1,42 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.calibre'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'org.springframework.amqp', name: 'spring-rabbit', version: '2.3.9'
+    implementation group: 'org.apache.commons', name: 'commons-csv', version: '1.8'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+    implementation group: 'com.hazelcast', name: 'hazelcast-all', version: '4.2.1'
+    implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.amqp:spring-rabbit-test'
+    testImplementation group: 'com.github.fridujo', name: 'rabbitmq-mock', version: '1.1.1'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.11.2'
+    testImplementation group: 'org.awaitility', name: 'awaitility', version: '4.1.0'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'spring.profiles.active', 'test'
+}

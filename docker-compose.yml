@@ -1,0 +1,28 @@
+version : '3'
+services :
+  rabbitmq:
+    image: rabbitmq:management
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  publisher:
+    image: vickyfengyu/dockerhub:publisher
+    depends_on:
+      - rabbitmq
+    ports:
+      - "9090:9090"
+    links:
+      - rabbitmq
+
+  subscriber:
+    image: vickyfengyu/dockerhub:subscriber
+    depends_on:
+      - rabbitmq
+    ports:
+      - "9091:9091"
+    links:
+      - rabbitmq
