@@ -7,7 +7,7 @@
 
   
 
-## How to run with docker
+## How to run with Docker
 
   
 
@@ -27,7 +27,7 @@ docker-compose up
 
   
 
-2. Or build, link and start your own docker images and containers with the Dockerfile within each project
+2. Or build, link and start your own docker images and containers with the Dockerfile within each project(publisher & subscriber)
 
   
 
@@ -35,23 +35,23 @@ docker-compose up
 
   
 
-1, It seems the give FX data APIs are just plain APIs and no advanced usage of these APIs, like Websocket, or Long pool, which can be used for real-time data transfer.
+1, It seems the given FX data APIs are just plain APIs and no advanced usage of them, like Websocket, or Long pool, which can be used for real-time data transfer.
 
   
 
-So I decided to use scheduled jobs requesting the realtime API with a list of interested currency pairs (*The FX rates of interest are AUDUSD, AUDNZD, AUDHKD, AUDKRW and AUDJPY*) at a fixed rate, as well as providing a controller to be used for accepting a **currency_pair** (e.g. EUR)as the request parameter to monitor the FX REST End Point for changes
+So I decided to use scheduled jobs requesting the real-time API with a list of interested currency pairs (*The FX rates of interest are AUDUSD, AUDNZD, AUDHKD, AUDKRW and AUDJPY*) at a fixed rate, as well as providing a controller to be used for accepting a **currency_pair** (e.g. EUR)as the request parameter to monitor the FX REST End Point for changes
 
   
 
-2, Though usually a separate service(like Redis cluster) as a store/cache layer is beneficial for the whole system availability and maintainability, i.e. Data service and business service separated. And even your business servers are down, the data is still persistent.
+2, Though usually, a separate service(like Redis cluster) as a store/cache layer is beneficial for the whole system availability and maintainability, i.e. Data service and business service separated, and even your business servers are down, the data is still persistent.
+
+
+For a demo purpose, simple inbuilt classes like ConcurrentHashMap is enough, but as an open-source distributed In-memory data store, Hazelcast now is popular, so I feel it worths a try.
 
   
 
-For a demo purpose, a simple inbuilt classes like ConcurrentHashMap is enough, but as an open-source distributed In-memory data store, Hazelcast now is popular, so I feel it worths a try.
-
-  
-
-> Hazelcast is used for caching objects from third party APIs, as well as for caching messgeIds received from rabbitMQ to prevent potential duplicate comsuming.
+> Hazelcast is used for caching objects from third-party APIs, as well as for caching messageIds received from rabbitMQ to prevent potential duplicate consumption.
+> Use Hazelcast as a database for data you can recover or ignore if lost. Hz gives you many tools to recover the data: [MapStore](https://docs.hazelcast.com/imdg/4.2/data-structures/map.html#loading-and-storing-persistent-data), [Connectors](https://jet-start.sh/docs/api/sources-sinks). I wouldn’t recommend using it when you need strong durability (as in “ACID” database), e.g. for a long-term storage.
 
   
 
@@ -71,7 +71,7 @@ But it looks like Batch is not supported as good as single message send and rece
 
 
 
-4, For generated CSV files, I saved them in the project folder, and provide a scheduled task to delete files older than 10 minutes ago. In production, usually have a separate file server to take care of all the files, I do the "Delete" action mainly for local laptop during development
+4, For generated CSV files, I saved them in the project folder, and provide a scheduled task to delete files older than 10 minutes ago. In production, usually have a separate file server to take care of all the files, I do the "Delete" action mainly for the local laptop during development
 
   
 
@@ -79,7 +79,7 @@ But it looks like Batch is not supported as good as single message send and rece
 
   
 
-Another idea is to define a set of custom exceptions, which emails should be sent once happened.
+Another idea is to define a set of custom exceptions, for which emails should be sent once happened.
 
   
   
@@ -114,7 +114,7 @@ Topic exchanges are used in this project
 
   
 
-> When you want to use consumer retry mechanism, you should throw the exceptions, instead of catch them, otherwise the retry won't work. Logs below show that the retry mechanism is working.
+> When you want to use a consumer retry mechanism, you should throw the exceptions, instead of try-catch them, otherwise, the retry won't work. Logs below show that the retry mechanism is working.
 
 ```
 
@@ -128,11 +128,11 @@ Topic exchanges are used in this project
 
   
 
-```RabbitTemplate.ConfirmCallback```: When messages are successfully or not successfully published into exchange.
+```RabbitTemplate.ConfirmCallback```: When messages are successfully or not successfully published into an exchange.
 
   
 
-```RabbitTemplate.ReturnsCallback```: When messages are successfully published an exchange, but not into a queue. E.g. when I bind my queue to a topic exchange with an invalid routing key, my ReturnsCallback is called.
+```RabbitTemplate.ReturnsCallback```: When messages have been successfully published an exchange, but not into a queue. E.g. when I bind my queue to a topic exchange with an invalid routing key, my ReturnsCallback is called.
 
   
 
