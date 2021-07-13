@@ -11,7 +11,7 @@
 
   
 
-1. With this [docker-compose.yml](https://github.com/vikki-xiaohua/rabbitmq-pub-sub/blob/main/docker-compose.yml), use command
+1. With this [docker-compose.yml](https://github.com/vikki-xiaohua/rabbitmq-publish-subscribe/blob/main/docker-compose.yml), use command
 
   
 
@@ -67,7 +67,7 @@ But it looks like Batch is not supported as good as single message send and rece
 
   
 
-#### [Rabbitmq-Batch-Pub-Sub Demo](https://github.com/vikki-xiaohua/rabbitmq-batch-pub-sub)
+#### [Rabbitmq-Batch-Pub-Sub Demo](https://github.com/vikki-xiaohua/rabbitmq-batch-publish-subscribe)
 
 
 
@@ -146,4 +146,4 @@ I use Thread.sleep(2000) to prevent the email service from being overloaded. It'
 
 ### Also  see
 
-> https://github.com/vikki-xiaohua/rabbitmq-batch-pub-sub
+> https://github.com/vikki-xiaohua/rabbitmq-batch-publish-subscribe
