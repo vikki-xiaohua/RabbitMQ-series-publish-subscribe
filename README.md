@@ -67,7 +67,8 @@ But it looks like Batch is not supported as good as single message send and rece
 
   
 
-#### [Rabbitmq-Batch-Pub-Sub Demo](https://github.com/vikki-xiaohua/rabbitmq-batch-publish-subscribe)
+#### [Rabbitmq-Batch-Publish-Subscribe Demo](https://github.com/vikki-xiaohua/rabbitmq-batch-publish-subscribe)
+
 
 
 
