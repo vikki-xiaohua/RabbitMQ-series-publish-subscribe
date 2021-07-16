@@ -148,3 +148,6 @@ I use Thread.sleep(2000) to prevent the email service from being overloaded. It'
 ### Also  see
 
 > https://github.com/vikki-xiaohua/rabbitmq-batch-publish-subscribe
+
+
+## It's forbidden to use these codes for a commercial product
