@@ -67,7 +67,7 @@ But it looks like Batch is not supported as good as single message send and rece
 
   
 
-### [Rabbitmq-Batch-Publish-Subscribe Demo](https://github.com/vikki-xiaohua/rabbitmq-batch-publish-subscribe-hazelcast-docker)
+### [Rabbitmq-Batch-Publish-Subscribe Demo](https://github.com/vikki-xiaohua/RabbitMQ-series-batch-publish-subscribe-hazelcast-docker)
 
 
 
@@ -147,7 +147,7 @@ I use Thread.sleep(2000) to prevent the email service from being overloaded. It'
 
 ### Also  see
 
-> https://github.com/vikki-xiaohua/rabbitmq-batch-publish-subscribe-hazelcast-docker
+> https://github.com/vikki-xiaohua/RabbitMQ-series-batch-publish-subscribe-hazelcast-docker
 
 
 ### It's forbidden to use these codes for a commercial product
